@@ -17,7 +17,18 @@ class Data_utils():
         return self.df
 
     def clean_data(self):
-        self.df = self.df.drop_duplicates().dropna()
+
+        df = self.df.copy()
+
+        df = df.drop_duplicates()
+
+        df["TotalCharges"] = pd.to_numeric(df["TotalCharges"], errors="coerce").fillna(0)
+
+        if "SeniorCitizen" in df.columns:
+            df["SeniorCitizen"] = df["SeniorCitizen"].replace({1: "Yes", 0: "No"})
+        
+        self.df = df
+
         return self.df
 
     def describe_data(self):
