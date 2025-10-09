@@ -2,17 +2,13 @@ from utils import Data_utils
 from dotenv import load_dotenv
 import os
 
-env = load_dotenv()
-
-import kagglehub
-
-path = kagglehub.dataset_download("blastchar/telco-customer-churn") + "/WA_Fn-UseC_-Telco-Customer-Churn.csv"
+load_dotenv()
 
 CLEAN_PATH = os.getenv("CLEAN_PATH")
 REPORT_PATH = os.getenv("REPORT_PATH")
 
 def main():
-    data = Data_utils(path)
+    data = Data_utils()
     data.load_data()
     data.clean_data()
     data.describe_data()

@@ -3,13 +3,14 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib
 from ydata_profiling import ProfileReport
+import kagglehub
 
 matplotlib.use('Agg')
 
 class Data_utils():
 
-    def __init__(self, path):
-        self.path = path
+    def __init__(self):
+        self.path = kagglehub.dataset_download("blastchar/telco-customer-churn") + "/WA_Fn-UseC_-Telco-Customer-Churn.csv"
         self.df = None
 
     def load_data(self):
@@ -19,6 +20,8 @@ class Data_utils():
     def clean_data(self):
 
         df = self.df.copy()
+
+        df.drop(columns=["customerID"], inplace=True)
 
         df = df.drop_duplicates()
 

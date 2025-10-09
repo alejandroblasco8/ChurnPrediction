@@ -215,3 +215,6 @@ uv.lock
 #Data files
 data/eda_report.html
 data/correlation.png
+
+#Pipeline
+*.pkl
