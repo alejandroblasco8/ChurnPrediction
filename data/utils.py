@@ -19,6 +19,9 @@ class Data_utils():
 
     def clean_data(self):
 
+        if self.df.empty:
+            return None
+
         df = self.df.copy()
 
         df.drop(columns=["customerID"], inplace=True)

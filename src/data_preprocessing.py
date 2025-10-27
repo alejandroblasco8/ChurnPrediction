@@ -2,14 +2,12 @@ from data.utils import Data_utils
 from config import SEED
 import os
 import pandas as pd
-import numpy as np
 import joblib
 from dotenv import load_dotenv
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.compose import ColumnTransformer
-from sklearn.base import BaseEstimator, TransformerMixin
 
 load_dotenv()
 
